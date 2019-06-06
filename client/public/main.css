@@ -2,6 +2,10 @@ body {
     background-color: #000;
 }
 
+.bg-black {
+    background-color: #000;
+}
+
 .header {
     font-family: 'Graduate', cursive;
 }
@@ -18,4 +22,13 @@ body {
     flex-flow: wrap;
     flex-direction: row;
     justify-content: space-around;
+}
+
+
+.login-wrapper {
+    max-width: 300px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
