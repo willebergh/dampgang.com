@@ -22,7 +22,7 @@ router.get("/me", auth, (req, res) => {
 // @desc    Register new user
 // @access  Public
 router.post("/register", (req, res) => {
-    const { fullName, username, email, password } = req.body;
+    const { username, email, password } = req.body;
 
     // Simple validation
     if (!username || !email || !password) {
@@ -35,7 +35,6 @@ router.post("/register", (req, res) => {
             if (user) return res.status(400).json({ msg: "User already exists" });
 
             const newUser = new User({
-                fullName,
                 username,
                 email,
                 password

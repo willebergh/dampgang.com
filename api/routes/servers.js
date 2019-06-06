@@ -28,7 +28,7 @@ router.post("/new", auth, (req, res) => {
     const { name, desc, platform, address } = req.body
 
     // Simple validation
-    if (!title || !address) {
+    if (!name || !address) {
         return res.status(400).json({ msg: "Please enter all fields." });
     } else {
 
