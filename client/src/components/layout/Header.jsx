@@ -7,8 +7,8 @@ class Header extends Component {
     render() {
         return (
             <Container>
-                <Navbar bg="dark" expand="lg">
-                    <Link className="navbar-brand text-light" to="/">DampGang</Link>
+                <Navbar className="bg-black" expand="lg">
+                    <Link className="navbar-brand text-light header" to="/">DampGang</Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">
