@@ -1,0 +1,21 @@
+body {
+    background-color: #000;
+}
+
+.header {
+    font-family: 'Graduate', cursive;
+}
+
+.landing-wrapper {
+    max-width: 300px;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.landing-nav {
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
