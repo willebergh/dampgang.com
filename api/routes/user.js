@@ -22,12 +22,14 @@ router.get("/me", auth, (req, res) => {
 // @desc    Register new user
 // @access  Public
 router.post("/register", (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, password, repeatPassword } = req.body;
 
     // Simple validation
-    if (!username || !email || !password) {
+    if (!username || !email || !password || !repeatPassword) {
         return res.status(400).json({ msg: "Please enter all fields" });
     }
+
+    if (password !== repeatPassword) return res.status(400).json({msg: "Passwords don't match"})
 
     // Check for existing user
     User.findOne({ email })
