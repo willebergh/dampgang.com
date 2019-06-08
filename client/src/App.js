@@ -7,9 +7,13 @@ import Register from "./components/views/Register";
 import Members from "./components/views/Members";
 import Servers from "./components/views/Servers";
 
+import Test from "./components/views/Test";
+
 function App() {
   return (
     <Router>
+
+      <Route exact path="/test" component={Test} />
 
       <Route exact path="/" component={Landing} />
 
