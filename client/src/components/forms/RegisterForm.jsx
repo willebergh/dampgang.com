@@ -101,20 +101,15 @@ class RegisterForm extends Component {
     isButtonDisabled() {
         let valid = 0;
         let invalid = 0;
-
         for (let field of Object.values(this.state)) {
             field.value === "" || field.error || !field.icon ? invalid++ : valid++
         }
-
-        console.log(invalid)
-
         return invalid === 0 ? false : true
     }
 
 
     onSubmit = e => {
         e.preventDefault();
-        console.log("hello")
     }
 
     render() {
