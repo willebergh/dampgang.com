@@ -4,10 +4,12 @@ const bcrypt = require("bcryptjs");
 require('dotenv').config()
 const jwt = require("jsonwebtoken");
 
+const auth = require("../middleware/auth");
+
 // User modal
 const User = require("../models/user");
 
-// @route   POST api/auth/login
+// @route   POST api/auth
 // @desc    Auth user
 // @access  Public
 router.post("/", (req, res) => {
@@ -35,7 +37,14 @@ router.post("/", (req, res) => {
                     )
                 })
         })
-})
+});
+
+// @route   POST api/auth
+// @desc    Check if a token is valid
+// @access  Public
+router.get("/", auth, (req, res) => {
+    res.status(200).json({ msg: "Access Granted" });
+});
 
 
 
