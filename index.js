@@ -10,12 +10,12 @@ mongo.load() ? mongo.connect(process.env.DB_URI) : console.log("[MongoDB]", "Fai
 
 app.use(express.json())
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "*",
     methods: "GET, PUT, POST, DELETE, UPDATE, OPTIONS",
     preflightContinue: false,
     optionsSuccessStatus: 201,
     credentials: true,
-    allowedHeaders: "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept"
+    allowedHeaders: "X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, damp_auth_token"
 }));
 
 
