@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { checkAuth } from "./actions/authActions";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Landing from "./components/views/Landing";
@@ -9,22 +11,41 @@ import Servers from "./components/views/Servers";
 
 import Test from "./components/views/Test";
 
-function App() {
-  return (
-    <Router>
+class App extends Component {
+  constructor(props) {
+    super(props);
 
-      <Route exact path="/test" component={Test} />
+    this.state = {
 
-      <Route exact path="/" component={Landing} />
+    }
+  }
 
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
+  componentWillMount() {
+    this.props.checkAuth(() => console.log("Auth Checked!"))
+  }
 
-      <Route exact path="/members" component={Members} />
-      <Route exact path="/servers" component={Servers} />
+  render() {
+    return (
+      <Router>
 
-    </Router>
-  );
+        <Route exact path="/test" component={Test} />
+
+        <Route exact path="/" component={Landing} />
+
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+
+        <Route exact path="/members" component={Members} />
+        <Route exact path="/servers" component={Servers} />
+
+      </Router >
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  loading: state.auth.loading,
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, { checkAuth })(App);
