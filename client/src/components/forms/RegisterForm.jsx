@@ -201,7 +201,7 @@ class RegisterForm extends Component {
                     </FormHelperText>
                 </FormControl>
 
-                <FormControl fullWidth>
+                <FormControl fullWidth className="mt-1">
                     <Button
                         type="submit"
                         variant="contained"
